@@ -1,0 +1,6 @@
+boards:
+  checkerboard_8x11:
+    _type_: 'checkerboard'
+    size: [8, 11]
+    square_length: 0.06
+

@@ -3,6 +3,22 @@
 
 Multi-camera calibration using one or more calibration patterns. 
 
+to build:
+
+`python .\setup.py install`
+
+to run:
+
+`multical calibrate --camera_pattern 'D:/CamCalib/data/20230208/{camera}' --cameras cam1 cam2 cam3 cam4 cam5 cam6 --boards D:/CamCalib/multical/example_boards/checkerboard_8x11.yaml --adjust_board False --iter 1000`
+
+`multical intrinsic --image_path D:/CamCalib/data/20230213/intrinsics --boards D:/CamCalib/multical/example_boards/checkerboard_8x11.yaml`
+
+`multical calibrate --image_path D:/CamCalib/data/20230213/extrinsics --boards D:/CamCalib/multical/example_boards/checkerboard_8x11.yaml --adjust_board False --iter 1000 --calibration D:/CamCalib/data/20230213/intrinsics/intrinsic.json --fix_intrinsic`
+
+to visualize:
+
+` multical vis --workspace_file calibration.pkl`
+
 ![image](https://raw.githubusercontent.com/saulzar/multical/master/screenshots/image_view.png)
 ![image](https://raw.githubusercontent.com/saulzar/multical/master/screenshots/3d_view.png)
 

@@ -1,0 +1,6 @@
+PyQt5
+qtpy
+pyvistaqt
+colour
+opencv-contrib-python
+qtawesome

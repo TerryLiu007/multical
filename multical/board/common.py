@@ -62,7 +62,9 @@ def quad_polygons(quads):
 
 def grid_mesh(points, size):
   w, h = size
-  indices = np.arange(points.shape[0]).reshape(h - 1, w - 1)
+  # indices = np.arange(points.shape[0]).reshape(h - 1, w - 1)
+  indices = np.arange(points.shape[0]).reshape(h, w)
+
   quad = np.array([indices[0, 0], indices[1, 0], indices[1, 1], indices[0, 1]])
   offsets = indices[: h - 2, :w - 2]
 

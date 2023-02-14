@@ -68,8 +68,8 @@ class Camera(Parameters):
                 model='standard', fix_aspect=False, has_skew=False, flags=0, max_images=None):
 
     points = calibration_points(boards, detections)
-    if max_images is not None:
-      points = top_detection_coverage(points, max_images, image_size)
+    # if max_images is not None:
+    #   points = top_detection_coverage(points, max_images, image_size)
 
     # termination criteria
     criteria = (cv2.TERM_CRITERIA_EPS +

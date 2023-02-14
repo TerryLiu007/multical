@@ -19,7 +19,7 @@ def get_motion_model(motion_model):
 def initialise_with_images(ws : Workspace, boards, camera_images, 
   camera_opts : CameraOpts = CameraOpts(), runtime : RuntimeOpts = RuntimeOpts()):
 
-
+    print(camera_images)
     ws.add_camera_images(camera_images, j=runtime.num_threads)
     ws.detect_boards(boards, load_cache=not runtime.no_cache, j=runtime.num_threads)
 

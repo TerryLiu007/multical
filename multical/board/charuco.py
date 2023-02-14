@@ -11,7 +11,7 @@ from multical.optimization.parameters import Parameters
 class CharucoBoard(Parameters, Board):
   def __init__(self, size, square_length, marker_length, min_rows=3, min_points=20, 
     adjusted_points=None, aruco_params=None, aruco_dict='4X4_100', aruco_offset=0):
-    
+
     self.aruco_dict = aruco_dict
     self.aruco_offset = aruco_offset 
 
@@ -97,7 +97,6 @@ class CharucoBoard(Parameters, Board):
 
     _, corners, ids = cv2.aruco.interpolateCornersCharuco(
         corners, ids, image, self.board)
-    
     if ids is None: return empty_detection
     return struct(corners = corners.squeeze(1), ids = ids.squeeze(1))
 

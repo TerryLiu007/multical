@@ -2,6 +2,8 @@ from dataclasses import dataclass
 from os import path
 from .charuco import CharucoBoard
 from .aprilgrid import AprilGrid
+from .checkerboard import CheckerBoard
+
 from .calico_config import load_calico
 
 
@@ -24,7 +26,6 @@ class CharucoConfig:
   aruco_offset : int = 0
   min_rows : int = 3
   min_points : int = 10
-
 
 
 @dataclass 
@@ -69,6 +70,9 @@ def load_config(yaml_file):
     elif config._type_ == "aprilgrid":
       schema = OmegaConf.structured(AprilConfig)
       return AprilGrid(**merge_schema(config, schema))
+    elif config._type_ == "checkerboard":
+      schema = OmegaConf.structured(CheckerboardConfig)
+      return CheckerBoard(**merge_schema(config, schema))
     else:
       assert False, f"unknown board type: {config._type_}, options are (charuco | aprilgrid | checkerboard)"
 
