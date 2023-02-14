@@ -76,11 +76,11 @@ class CheckerBoard(Parameters, Board):
       return self.__str__()      
 
   def detect(self, image):
-    cv2.imwrite("img.png", image)
+    # cv2.imwrite("img.png", image)
     ret_val, corners = cv2.findChessboardCorners(image, self.size, None)
     if not ret_val: return empty_detection
-    # print("Refining corners")
-    # corners = cv2.cornerSubPix(image, corners, (10,10), (-2,2), criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 100, 0.0001))
+    print("Refining corners")
+    corners = cv2.cornerSubPix(image, corners, (10,10), (-2,2), criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 100, 0.0001))
     return struct(corners = corners.squeeze(1), ids=np.arange(self.size[0]* self.size[1]))
 
   def has_min_detections(self, detections):

@@ -5,6 +5,7 @@ Multi-camera calibration using one or more calibration patterns.
 
 to build:
 
+`python .\setup.py build`
 `python .\setup.py install`
 
 to run:
@@ -13,7 +14,7 @@ to run:
 
 `multical intrinsic --image_path D:/CamCalib/data/20230213/intrinsics --boards D:/CamCalib/multical/example_boards/checkerboard_8x11.yaml`
 
-`multical calibrate --image_path D:/CamCalib/data/20230213/extrinsics --boards D:/CamCalib/multical/example_boards/checkerboard_8x11.yaml --adjust_board False --iter 1000 --calibration D:/CamCalib/data/20230213/intrinsics/intrinsic.json --fix_intrinsic`
+`multical calibrate --image_path /liutianrui/multical-master/data/20230213/extrinsics --boards /liutianrui/multical-master/example_boards/checkerboard_8x11.yaml --adjust_board False --iter 1000 --calibration /liutianrui/multical-master/data/20230213/intrinsics/intrinsic.json --fix_intrinsic`
 
 to visualize:
 
