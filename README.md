@@ -3,6 +3,10 @@
 
 Multi-camera calibration using one or more calibration patterns. 
 
+IMPORTANT dependency:
+py-structs==0.2.7
+opencv-contrib-python==4.6.0.66
+
 to build:
 
 `python .\setup.py build`
