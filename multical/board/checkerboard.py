@@ -4,6 +4,7 @@ from cached_property import cached_property
 import cv2
 import numpy as np
 from .common import *
+from checkerboard import detect_checkerboard
 
 from structs.struct import struct, choose, subset
 from multical.optimization.parameters import Parameters
@@ -77,10 +78,17 @@ class CheckerBoard(Parameters, Board):
 
   def detect(self, image):
     cv2.imwrite("img.png", image)
+
+    # option 1: opencv default corner detection
     ret_val, corners = cv2.findChessboardCorners(image, self.size, None)
     if not ret_val: return empty_detection
-    print("Refining corners")
-    corners = cv2.cornerSubPix(image, corners, (10,10), (-2,2), criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 100, 0.0001))
+    print("Detected corners")
+    # corners = cv2.cornerSubPix(image, corners, (10,10), (-2,2), criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 100, 0.0001))
+
+    # option 2: lambdaloop checkerboard detection - worse
+    # corners, score = detect_checkerboard(image, self.size)
+    # if score == 1: return empty_detection
+
     return struct(corners = corners.squeeze(1), ids=np.arange(self.size[0]* self.size[1]))
 
   def has_min_detections(self, detections):
