@@ -76,7 +76,7 @@ class CheckerBoard(Parameters, Board):
       return self.__str__()      
 
   def detect(self, image):
-    # cv2.imwrite("img.png", image)
+    cv2.imwrite("img.png", image)
     ret_val, corners = cv2.findChessboardCorners(image, self.size, None)
     if not ret_val: return empty_detection
     print("Refining corners")

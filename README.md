@@ -6,15 +6,20 @@ Multi-camera calibration using one or more calibration patterns.
 to build:
 
 `python .\setup.py build`
+
 `python .\setup.py install`
 
-to run:
+to run both intrinsic and extrinsic:
 
-`multical calibrate --camera_pattern 'D:/CamCalib/data/20230208/{camera}' --cameras cam1 cam2 cam3 cam4 cam5 cam6 --boards D:/CamCalib/multical/example_boards/checkerboard_8x11.yaml --adjust_board False --iter 1000`
+`multical calibrate --camera_pattern '/liutianrui/multical-master/data/20230213/extrinsics/{camera}' --cameras cam1 cam2 cam3 --boards /liutianrui/multical-master/example_boards/checkerboard_8x11.yaml --adjust_board False --iter 1000`
 
-`multical intrinsic --image_path D:/CamCalib/data/20230213/intrinsics --boards D:/CamCalib/multical/example_boards/checkerboard_8x11.yaml`
+to run intrinsic:
 
-`multical calibrate --image_path /liutianrui/multical-master/data/20230213/extrinsics --boards /liutianrui/multical-master/example_boards/checkerboard_8x11.yaml --adjust_board False --iter 1000 --calibration /liutianrui/multical-master/data/20230213/intrinsics/intrinsic.json --fix_intrinsic`
+`multical intrinsic --image_path /liutianrui/multical-master/data/snow51/intrinsics --boards /liutianrui/multical-master/example_boards/checkerboard_8x11.yaml`
+
+to run extrinsic:
+
+`multical calibrate --image_path /liutianrui/multical-master/data/snow51/extrinsics --boards /liutianrui/multical-master/example_boards/checkerboard_8x11.yaml --adjust_board False --iter 1000 --calibration /liutianrui/multical-master/data/snow51/intrinsics/intrinsic.json --fix_intrinsic`
 
 to visualize:
 
